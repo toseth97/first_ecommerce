@@ -128,10 +128,9 @@ body{
 }
 .cart_value{
   position: absolute;
-  font-size: .6rem;
+  font-size: .8rem;
   bottom: -5px;
-  right: -20px;
-  font-weight: bolder;
+  right: -25px;
 }
 .hamburger{
   padding: 1.5rem 1rem;
@@ -267,9 +266,11 @@ body{
 }
 .container{
   padding-top: 2rem;
-  flex-direction: column;
   width: 70%;
   align-items: center;
+}
+.column_direction{
+  flex-direction: column;
 }
 .container h2{
   font-size: 2rem;
@@ -442,6 +443,9 @@ padding: .5rem 10px;
   height: 85vh;
   align-items: flex-start;
 }
+.error{
+  flex-direction: column;
+}
 ._404 div{
   font-size:7rem;
   letter-spacing: 1rem;
@@ -486,6 +490,43 @@ padding: .5rem 10px;
 }
 
 
+
+
+/***ABOUT PAGE***/
+.about{
+  display: flex;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+.about_img, .about_text{
+  width: 50%;
+}
+.about_img > img{
+  max-width: 700px;
+  width: 100%;
+}
+.about_img{
+  animation: goRight 2s forwards;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.about_text{
+  animation: goRight 2s forwards;
+  opacity: 0;
+  transform: translateX(50px);
+  animation-delay: 1s;
+}
+
+
+@keyframes goRight {
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes goLeft {
+  
+}
 
 
 /***FOOTER***/
@@ -661,6 +702,17 @@ footer p{
   .input_label{
     left: 100px;
     width: 30rem;
+    text-align: center;
+  }
+
+  .about{
+    flex-direction: column;
+    width: 90%;
+  }
+  .about_img, .about_text{
+    width: 90%;
+  }
+  .about_text h1{
     text-align: center;
   }
   

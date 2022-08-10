@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import About from './components/About';
 import Footer from './components/Footer';
+import Products from './components/Products';
 import Error from './components/Error';
 import {useEffect, useState} from "react"
 
@@ -11,7 +12,10 @@ import {useEffect, useState} from "react"
 function App() {
   const [mobile, setMobile] = useState(false);
   const [products, setProduct] = useState([])
-  const [isloading, setIsLoading] = useState(true)
+  const [isloading, setIsLoading] = useState(true)  
+  const [search, setSearch] = useState("")
+  const [range, setRange] = useState("")
+  const [category, setCategory] =  useState("")
 
   const API_KEY = "https://fakestoreapi.com/products/"
 
@@ -41,6 +45,19 @@ function App() {
   const featured_product = products.filter(current =>{
     return current.id === 2 || current.id === 17 || current.id === 9
   })
+
+
+  //Setting logic for the rpoduct page
+
+  const handleSearch = (event) =>{
+    setSearch(event.target.value)
+  }
+  const handleRange = (event) =>{
+    setRange(event.target.value)
+  }
+  const handleCategory = (event) =>{
+    setCategory(event.target.value)
+  }
   
   
 
@@ -50,6 +67,14 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home  isloading = {isloading} featured_product = {featured_product} /> } />
         <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products
+          category = {category}
+          search = {search}
+          range = {range}
+          handleRange = {handleRange}
+          handleCategory = {handleCategory}
+          handleSearch = {handleSearch}
+         />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

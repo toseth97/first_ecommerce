@@ -37,7 +37,7 @@ const Home = ({isLoading, featured_product}) => {
       {/****FEATURED PRODUCTS*****/}
 
       <section className="parent">
-        <div className="container">
+        <div className="container column_direction">
           <h2>Featured Products</h2>
           <div className='underLine'></div>
           <div className='featured_product'>
@@ -52,7 +52,7 @@ const Home = ({isLoading, featured_product}) => {
       </section>
 
       <section className= "parent all_value">
-        <div className="container value_container">
+        <div className="container value_container column_direction">
            <div className = "core_value">
             <h2>Customize your look with ease</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum debitis consectetur reprehenderit non aliquam voluptates dolore aut vero consequuntur.</p>
