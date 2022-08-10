@@ -6,7 +6,8 @@
   --dark_orange: #f0a04b;
   --light_green: #e1eedd;
   --dark_green: #183a1d;
-  --brown: #492b03;
+
+  --medium_green: #5b8962;
   --light_brown: #e5d3ba;
 }
 *{
@@ -205,6 +206,15 @@ body{
   font-size: 3.4rem;
   height: 150px;
   font-family: 'Oleo Script Swash Caps', cursive;
+  animation: moveright 1s forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.intro_paragraph{
+  animation: moveright 1s forwards;
+  animation-delay: .3s;
+  opacity: 0;
+  transform: translateX(-20px);
 }
 .shop_now{
   outline: none;
@@ -216,8 +226,22 @@ body{
   border: none;
   cursor: pointer;
   transition: .5s ease;
+  opacity: 0;
   border-radius: 5px;
+  animation: moveright 1s forwards;
+  animation-delay: .7s ;
+  transform: translateX(-20px);
 }
+
+@keyframes moveright {
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
 .shop_now:hover{
   filter: drop-shadow(5px 5px 1px gray);
   
@@ -246,10 +270,10 @@ body{
 }
 .underLine{
   width: 150px;
-  height: 5px;
+  height: 3px;
   background-color: var(--light_orange);
   border-radius: 20px;
-  margin: 1rem 0;
+  margin: .5rem 0 1.5rem;
 }
 .featured_product{
   gap: 2rem;
@@ -261,11 +285,22 @@ body{
   display: flex;
   align-items: center;
   flex-direction: column;
-  
+  position: relative;
+}
+.best_selling{
+  position: absolute;
+  left: 2rem;
+  font-size: .5rem;
+  padding: .2rem 1rem;
+  background-color: var(--light_orange);
+  color: var(--dark_green);
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 1;
 }
 .each_featured_product > img{
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   transition: .5s ease;
   cursor: pointer;
 }
@@ -278,7 +313,7 @@ body{
   margin-top: .5rem;
   width: 250px;
   padding: .2rem 0.5rem;
-  height: 40px;
+  height: 45px;
 }
 .item_price{
   font-size: .8rem;
@@ -286,8 +321,17 @@ body{
   padding: 0 0.5rem;
 }
 
+
+
+
 .all_value{
   background-color: var(--light_green);
+  height: 430px;
+  align-items: flex-start;
+  margin-bottom: 100px;
+}
+.value_container{
+  position: relative;
 }
 .core_value{
   display: flex;
@@ -302,8 +346,109 @@ body{
   font-size: .9rem;
   width: 70%;
 }
+.value_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: absolute;
+  top: 200px;
+
+}
+.each_value{
+  background-color: var(--medium_green);
+  border-radius: 5px;
+  padding: 2rem .5rem;
+}
+.each_value p{
+  color: var(--dark_green);
+  text-align: center;
+  line-height: 1.5rem;
+}
+.value_heading{
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  font-weight: bolder;
+
+}
+.value_body{
+  font-size: .8rem;
+}
+.newsletter, .letter_input, .letter_text{
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 70%;
+}
+
+.letter_text, .letter_input{
+  width: 60%;
+  flex-direction: column;
+
+}
+.letter_text p{
+  font-size: .9rem;
+  line-height: 1.5rem;
+  opacity: .7;
+}
+
+.newsletter_form{
+  width: 50%;
+  padding: .5rem 0;
+  position: relative;
+  
+}
+.subscribe_input{
+width: 75%;
+padding: .5rem 10px;
+}
+.subscribe{
+  width: 25%;
+  padding: .5rem 10px;
+  background-color: var(--dark_green);
+  color: var(--light_green);
+  border: 2px solid var(--dark_green);
+}
+.input_label{
+  position: absolute;
+  padding: .1rem 1rem;
+  top: 10px;
+  left: 10px;
+  background-color: #fff;
+  width: 20rem;
+  font-size: .9rem;
+  transition: .5s ease;
+}
+#input_id:focus + .input_label{
+  font-size: .7rem;
+  width: 120px;
+  top: -5px;
+  background-color: #fff;
+}
 
 
+/***FOOTER***/
+
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: var(--dark_green);
+}
+footer p{
+  color: var(--light_green);
+  font-size: .9rem;
+  margin: .25rem 0;
+}
+.love{
+  color: red;
+  font-size: 1rem;
+  margin: 0 .5rem;
+}
 
 
 /***Tab ViewPort*****/
@@ -322,10 +467,11 @@ body{
   .Nav_ul{
     position: absolute;
     width: 100%;
+    height: 100vh;
     left: 0;
     background-color: var(--light_green);
     display: block;
-    top: -200px;
+    top: -120vh;
     transition: .5s ease;
     z-index: -1;
     overflow: hidden;
@@ -333,6 +479,7 @@ body{
   .Nav_ul.active{
     top: 60px;
     padding-bottom: 2rem;
+    position: fixed;
   }
   .other_nav_menu{
     position: absolute;
@@ -345,7 +492,8 @@ body{
     transition: .5s ease;
   }
   .other_nav_menu.active{
-    top:240px
+    top:240px;
+    position: fixed;
   }
   .link_wrapper{
     width: 100%;
@@ -396,6 +544,57 @@ body{
     justify-content: space-between;
     flex-direction: column;
   }
+  .best_selling{
+    left: 20%;
+  }
+
+  .core_value h2{
+    font-size: 1.7rem;
+  }
+  .all_value{
+    height: min-content;
+    padding-bottom: 5rem;
+  }
+  .value_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    top: 50px;
+  }
+  .newsletter{
+    flex-direction: column;
+    width: 90%;
+  }
+  .letter_text{
+    text-align: center;
+  }
+  .letter_text, .newsletter_form{
+    width: 100%;
+  }
+  .newsletter_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .subscribe{
+    width: 50%;
+    margin-top: 1rem;
+  }
+  .subscribe_input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--dark_green);
+  }
+  .input_label{
+    left: 100px;
+    width: 30rem;
+    text-align: center;
+  }
+  
 }
 
 
@@ -420,6 +619,9 @@ body{
     font-size: 2.6rem;
     height: 180px;
   }
+  .container{
+    width: 90%;
+  }
   .core_value{
     gap: 1rem;
     flex-direction: column;
@@ -427,5 +629,10 @@ body{
   .core_value p{
     font-size: .9rem;
     width: 100%;
+  }
+  .input_label{
+    left: 50px;
+    width: 16rem;
+    text-align: center;
   }
 }
