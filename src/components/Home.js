@@ -8,7 +8,7 @@ const Home = ({isLoading, featured_product}) => {
 
 
   return (
-    <main className = "home_wrapper">
+    <main className = "home_wrapper routes">
 
     {/****WELCOME PART*****/}
 
@@ -42,7 +42,6 @@ const Home = ({isLoading, featured_product}) => {
           <div className='underLine'></div>
           <div className='featured_product'>
             {featured_product.map(current =>{
-              console.log(current)
                 return (<div className='each_featured_product'>
                   <Featured_products key = {current.id} current = {current} />
                 </div>)
