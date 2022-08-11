@@ -74,6 +74,8 @@ function App() {
           handleRange = {handleRange}
           handleCategory = {handleCategory}
           handleSearch = {handleSearch}
+          products = {products}
+          isloading = {isloading}
          />} />
         <Route path="*" element={<Error />} />
       </Routes>
