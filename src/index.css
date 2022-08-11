@@ -320,15 +320,13 @@ body{
   margin-top: .5rem;
   width: 250px;
   padding: .2rem 0.5rem;
-  height: 45px;
+  height: 50px;
 }
 .item_price{
   font-size: .8rem;
   font-weight: bolder;
   padding: 0 0.5rem;
 }
-
-
 
 
 .all_value{
@@ -545,11 +543,24 @@ padding: .5rem 10px;
   font-size: 1.2rem;
   margin: 1rem 0 .5rem;
 }
-.filter{
+.filters{
   width: 30%;
+  position: sticky;
+  top: 100px;
 }
 .product_list{
   width: 70%;
+  opacity: 0;
+  animation: moveleft 1.5s ease forwards;
+  animation-delay: 1s;
+  transform: translateX(50px);
+}
+
+@keyframes moveleft {
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 .option{
   cursor: pointer;
@@ -564,7 +575,36 @@ padding: .5rem 10px;
   animation: moveright 1s forwards;
   opacity: 0;
   transform: translateX(-50px);
-
+}
+.product_top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 3rem;
+}
+.product_top p{
+  font-size: .8rem;
+}
+.product_line{
+  height: 1px;
+  width: 200px;
+  background-color: var(--dark_green);
+  flex-grow: 1;
+}
+.all_products{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.grid_item{
+  margin: 1rem .5rem;
+}
+.item_image{
+  width: 200px;
+  height: 250px;
 }
 
 

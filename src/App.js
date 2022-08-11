@@ -4,6 +4,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Footer from './components/Footer';
 import Products from './components/Products';
+import Product_preview from './components/Product_preview';
 import Error from './components/Error';
 import {useEffect, useState} from "react"
 
@@ -47,7 +48,7 @@ function App() {
   })
 
 
-  //Setting logic for the rpoduct page
+  //Setting logic for the product page
 
   const handleSearch = (event) =>{
     setSearch(event.target.value)
@@ -77,6 +78,7 @@ function App() {
           products = {products}
           isloading = {isloading}
          />} />
+         <Route path="/products/:productId" element={<Product_preview />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

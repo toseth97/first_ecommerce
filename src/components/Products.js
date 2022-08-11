@@ -1,4 +1,5 @@
 import React from 'react'
+import Product_item from './Product_item';
 
 const Products = ({range, category, search, handleSearch, handleCategory, handleRange, products, isloading}) => {
   return (
@@ -22,14 +23,14 @@ const Products = ({range, category, search, handleSearch, handleCategory, handle
                 <button className= "shop_now">Clear Filter</button>
    
             </div>
-            <div className='product-list'>
+            <div className='product_list'>
                 <div className='product_top'>
                     <p>{`${products.length} Products Found`}</p>
                     <div className='product_line'></div>
                 </div>
                 <div className = "all_products">
                     {products.map(product => {
-                        return 
+                        return <Product_item key = {products.id} product = {product} />
                     })}
                 </div>
             </div>
