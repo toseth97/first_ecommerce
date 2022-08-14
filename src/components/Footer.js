@@ -4,7 +4,7 @@ const Footer = () => {
     const date = new Date().getFullYear
   return (
     <footer>
-        <p> &copy; {date} He-Codes, All right reserved</p>
+        <p> &copy; 2022 He-Codes, All right reserved</p>
         <p>
             Made with <span className='love'>&hearts;</span> from Nigeria by Tobiloba Lawal
         </p>

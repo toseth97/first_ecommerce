@@ -1,6 +1,7 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect';
 import Featured_products from './Featured_products';
+import {Link} from 'react-router-dom'
 import value from './value'
 
 
@@ -26,7 +27,9 @@ const Home = ({isLoading, featured_product}) => {
           <p className='intro_paragraph'>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at sed omnis corporis doloremque possimus velit! Repudiandae nisi odit, aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis alias?
           </p>
-          <button className = "shop_now">Shop Now</button>
+          <Link to = "/products">
+            <button className = "shop_now">Shop Now</button>
+          </Link>
         </div>
         <div className="site_image">
           <img src="./shopping.png" alt="site_image " />
@@ -42,12 +45,17 @@ const Home = ({isLoading, featured_product}) => {
           <div className='underLine'></div>
           <div className='featured_product'>
             {featured_product.map(current =>{
-                return (<div className='each_featured_product'>
-                  <Featured_products key = {current.id} current = {current} />
-                </div>)
+                return (<Link to = {`/products/${current.id}`}> <div className='each_featured_product'>
+                  
+                    <Featured_products key = {current.id} current = {current} />
+                  
+                </div>
+                </Link>)
             })}
           </div>
-          <button className = "shop_now">All Product</button>
+          <Link to = "/products">
+            <button className = "shop_now">All Product</button>
+          </Link>
         </div>
       </section>
 

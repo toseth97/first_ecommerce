@@ -32,6 +32,9 @@ body{
   font-family: 'Poppins', sans-serif;
   width: 100%;
 }
+a{
+  text-decoration: none;
+}
 
 
 
@@ -285,14 +288,16 @@ body{
 .featured_product{
   gap: 2rem;
   width: 100%;
+  align-items: center;
   justify-content: space-between;
 }
 .each_featured_product{
-  padding: 1rem 2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
   position: relative;
+  max-width: 200px;
 }
 .best_selling{
   position: absolute;
@@ -533,6 +538,7 @@ padding: .5rem 10px;
 .product{
   align-items: flex-start;
   width: 80%;
+  gap: 1.5rem;
   justify-content: space-between;
 }
 .category p{
@@ -581,26 +587,29 @@ padding: .5rem 10px;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 3rem;
+  gap: 1rem;
 }
 .product_top p{
   font-size: .8rem;
 }
 .product_line{
   height: 1px;
-  width: 200px;
+  width: 100px;
   background-color: var(--dark_green);
   flex-grow: 1;
 }
 .all_products{
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
+  padding: 2.5rem 0;
 }
 .grid_item{
-  margin: 1rem .5rem;
+  margin: 1rem 2rem;
+  cursor: pointer;
+  width: 200px;
 }
 .item_image{
   width: 200px;
@@ -617,6 +626,107 @@ padding: .5rem 10px;
 }
 
 
+/*** Item Review ***/
+
+
+.item_review{
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.8rem 0;
+  width: 80%;
+}
+.img_item, .item_details{
+  width: 60%;
+}
+.img_item{
+  display: grid;
+  place-content: center;
+}
+.img_item img{
+  width: 400px;
+  height: 400px;
+}
+.item_details h3{
+  margin: 1rem 0;
+}
+
+.cartInput{
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 1rem;
+  width: max-content;
+}
+
+.cart_button{
+  background-color: #aabbac;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.quantity{
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.back{
+  
+  outline: none;
+  background-color: rgb(203, 94, 94);
+  padding: .7rem 2rem;
+  color: #fff;
+  font-weight: bold;
+  margin: 1rem .5rem 0;
+  border: none;
+  cursor: pointer;
+  transition: .5s ease;
+  opacity: 0;
+  width: 120px;
+  border-radius: 5px;
+  animation: moveright 1s forwards;
+  animation-delay: .7s ;
+  transform: translateX(-20px);
+}
+
+
+/*** Cart ***/
+.myCart{
+  height: 80vh;
+  width: 25%;
+  position: fixed;
+  padding: 1rem;
+  top: 70px;
+  right: -100%;
+  z-index: 5;
+  background-color: #fff;
+  filter: drop-shadow(1px 1px 5px gray);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  border-radius: 10px;
+  transition: 1s ease;
+}
+.showCart{
+  top: 70px;
+  right: 30px;
+  opacity: 1;
+}
+.myCart h2{
+  margin-top: 1rem;
+}
+.cart_content_div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  width: 90%;
+  height: 80%;
+}
 
 /***FOOTER***/
 
@@ -626,13 +736,14 @@ footer{
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  padding: 1rem 0;
+  padding: .5rem 0;
   background-color: var(--dark_green);
 }
 footer p{
   color: var(--light_green);
   font-size: .9rem;
-  margin: .25rem 0;
+  margin: .1rem 0;
+  text-align: center;
 }
 .love{
   color: red;
@@ -804,7 +915,54 @@ footer p{
   .about_text h1{
     text-align: center;
   }
+  .grid_item{
+    margin: 1rem;
+    cursor: pointer;
+    width: 200px;
+  }
+  .item_review{
+    flex-direction: column;
+  }
+  .img_item, .item_details{
+    width: 100%;
+  }
+  .img_item img{
+    width: 300px;
+    height: 300px;
+  }
+  .myCart{
+    height: 80vh;
+    width: 100%;
+    position: fixed;
+  }
+  .showCart{
+    top: 70px;
+    right: 0px;
+    opacity: 1;
+  }
   
+}
+
+@media screen and (max-width:880px) {
+  .grid_item{
+    margin: 1rem .5rem;
+    cursor: pointer;
+    width: 170px;
+  }
+  .item_title{
+    width: 170px;
+    height: 50px;
+  }
+  .item_image{
+    width: 150px;
+    height: 200px;
+  }
+  .product{
+    width: 90%;
+  }
+  .Search_item{
+    width: 150px;
+  }
 }
 
 
@@ -844,5 +1002,17 @@ footer p{
     left: 50px;
     width: 16rem;
     text-align: center;
+  }
+  .Search_item{
+    width: 100px;
+  }
+  .range_input{
+    width: 100px;
+  }
+  .Nav_wrapper{
+    top: 0;
+  }
+  .filters{
+    top: 7rem;
   }
 }

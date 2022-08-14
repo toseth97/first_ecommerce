@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom"
 
-const Navigation = ({ handleMobile, mobile}) => {
+const Navigation = ({ handleMobile, handleCart, mobile, allCart}) => {
   return (
     <nav className="Nav_wrapper">
       <div className="Nav_content">
@@ -23,9 +23,9 @@ const Navigation = ({ handleMobile, mobile}) => {
             </div>
         </ul>
         <div className={mobile ? "other_nav_menu active" : "other_nav_menu"}>
-          <div className="cart_div">
+          <div className="cart_div" onClick={handleCart}>
             <i className='bx bxs-cart cart'></i>
-            <p className="cart_value">0</p>
+            <p className="cart_value">{allCart.length}</p>
           </div>
           <p>Login</p>
         </div>
