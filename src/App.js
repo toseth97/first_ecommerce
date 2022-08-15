@@ -97,6 +97,13 @@ function App() {
     } 
   }
 
+const notify = () => {
+  setTimeout(() => {
+    
+  }, 3000);
+}
+
+
   //handle the add product to cart button
 
   const handleAddToCart = (product,quantity_value) =>{
@@ -111,6 +118,7 @@ function App() {
       for(let i = 0 ; i < allCart.length ; i++){
         if(allCart[i].id === id){
           alert("Product already in cart")
+          return
         }else{
           const cart = {...product, quantity:quantity}
           const newCart = [...allCart, cart]
@@ -125,7 +133,6 @@ function App() {
   //handle show cart
   const handleCart = () => {
     setMobile(false)
-    setCartDisplay(!cartDisplay)
   }
   //handle product quantity
   
@@ -140,12 +147,17 @@ function App() {
   }
 
   //handle the remove product from cart button
-  
+  const handleDeleteItem = (params) => {
+        console.log(params)
+        const item = allCart.filter(item => {
+          return item.id !== params
+        })
+        setAllCart(item)
+  }
 
   return (
     <div className="App">
       <Navigation allCart = {allCart} mobile = {mobile} handleMobile = {handleMobile} handleCart = {handleCart} />
-      <Cart allCart = {allCart} cartDisplay = {cartDisplay} handleCart = {handleCart} />
       <Routes>
         <Route exact path="/" element={<Home  isloading = {isloading} featured_product = {featured_product} /> } />
         <Route path="/about" element={<About />} />
@@ -160,7 +172,7 @@ function App() {
           isloading = {isloading}
          />} />
          <Route path="/products/:id" element={<Product_preview handleAddToCart = {handleAddToCart} handleQuantity={handleQuantity} quantity = {quantity} products = {products} isloading = {isloading} />} />
-         <Route path="/cart" element={<Cart  />} />
+         <Route path="/cart" element={<Cart handleDeleteItem={handleDeleteItem} allCart = {allCart} cartDisplay = {cartDisplay} handleCart = {handleCart} />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

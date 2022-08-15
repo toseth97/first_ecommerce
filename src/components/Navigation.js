@@ -23,10 +23,12 @@ const Navigation = ({ handleMobile, handleCart, mobile, allCart}) => {
             </div>
         </ul>
         <div className={mobile ? "other_nav_menu active" : "other_nav_menu"}>
-          <div className="cart_div" onClick={handleCart}>
-            <i className='bx bxs-cart cart'></i>
-            <p className="cart_value">{allCart.length}</p>
-          </div>
+          <Link to = "/cart">
+            <div className="cart_div" onClick={handleCart}>
+              <i className='bx bxs-cart cart'></i>
+              <p className="cart_value">{allCart.length}</p>
+            </div>
+          </Link>
           <p>Login</p>
         </div>
         <div className={mobile? "hamburger active": "hamburger"} onClick={handleMobile}>
