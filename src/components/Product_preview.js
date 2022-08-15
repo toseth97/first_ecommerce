@@ -1,7 +1,7 @@
 import React from 'react'
 import {useParams, Link} from 'react-router-dom'
 
-const Product_preview = ({products, handleAddToCart, quantity, handleQuantity}) => {
+const Product_preview = ({products,cartDisplay ,handleAddToCart, quantity, handleQuantity}) => {
   const {id} = useParams()
   const allProducts = products? products: null
   const product = allProducts.find(current => {
@@ -33,6 +33,7 @@ const Product_preview = ({products, handleAddToCart, quantity, handleQuantity}) 
           <Link to = "/products"> 
             <button className = "back">Go back</button>
           </Link>
+          
         </div>
       </div>
      

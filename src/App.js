@@ -19,7 +19,7 @@ function App() {
   const [range, setRange] = useState("")
   const [category, setCategory] =  useState("")
   const [filter_product, setFilter_product] =  useState([])
-  const [allCart, setAllCart] = useState([])
+  const [allCart, setAllCart] = useState(localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [])
   const [cartDisplay, setCartDisplay] = useState(false)
   const [quantity, setQuantity] = useState(1)
 
@@ -97,11 +97,7 @@ function App() {
     } 
   }
 
-const notify = () => {
-  setTimeout(() => {
-    
-  }, 3000);
-}
+
 
 
   //handle the add product to cart button
@@ -111,8 +107,9 @@ const notify = () => {
     if(allCart.length === 0){
       const cart = {...product, quantity:quantity_value}
       const newCart = [...allCart, cart]
+      localStorage.setItem("cart", JSON.stringify(newCart))
       setAllCart(newCart)
-      console.log(newCart)
+      alert("Item added to cart")
     } 
     else if(allCart.length > 0){
       for(let i = 0 ; i < allCart.length ; i++){
@@ -122,9 +119,12 @@ const notify = () => {
         }else{
           const cart = {...product, quantity:quantity}
           const newCart = [...allCart, cart]
+          localStorage.setItem("cart", JSON.stringify(newCart))
           setAllCart(newCart)
+          
         }
       }
+      alert("Item added to cart")
     }
     setQuantity(1)
     
@@ -152,6 +152,7 @@ const notify = () => {
         const item = allCart.filter(item => {
           return item.id !== params
         })
+        localStorage.setItem("cart", JSON.stringify(item))
         setAllCart(item)
   }
 
@@ -171,7 +172,7 @@ const notify = () => {
           products = {filter_product}
           isloading = {isloading}
          />} />
-         <Route path="/products/:id" element={<Product_preview handleAddToCart = {handleAddToCart} handleQuantity={handleQuantity} quantity = {quantity} products = {products} isloading = {isloading} />} />
+         <Route path="/products/:id" element={<Product_preview cartDisplay = {cartDisplay} handleAddToCart = {handleAddToCart} handleQuantity={handleQuantity} quantity = {quantity} products = {products} isloading = {isloading} />} />
          <Route path="/cart" element={<Cart handleDeleteItem={handleDeleteItem} allCart = {allCart} cartDisplay = {cartDisplay} handleCart = {handleCart} />} />
         <Route path="*" element={<Error />} />
       </Routes>

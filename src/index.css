@@ -633,7 +633,7 @@ padding: .5rem 10px;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  padding: 6rem 0;
+  padding: 8rem 0;
   width: 80%;
 }
 .img_item, .item_details{
@@ -694,7 +694,7 @@ padding: .5rem 10px;
 
 /*** Cart ***/
 .myCart{
-  height: 90vh;
+ 
   width: 100%;
   display: flex;
   justify-content: center;
@@ -718,14 +718,21 @@ padding: .5rem 10px;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  height: 85vh;
   width: 100%;
+}
+.empty_cart{
+  margin-top: 10rem;
 }
 .cart_items{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 10px;
   width: 90%;
+}
+.cart_items p{
+  width: 20%;
 }
 .cart_item_header{
   display: flex;
@@ -741,6 +748,28 @@ padding: .5rem 10px;
 .cart_items img{
   width: 100px;
   height: 100px;
+}
+.total_main, .total_main div{
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.total_main{
+  margin-top: 8rem;
+}
+.total_main p{
+  padding: .5rem;
+  background-color: #f6c453;
+  margin: 1rem;
+  width: 40%;
+  cursor: pointer;
+
+}
+.item_total_price{
+  font-size: 1.8rem;
 }
 
 /***FOOTER***/
@@ -953,6 +982,10 @@ footer p{
   .item_cart_name{
     display: none;
   }
+  .total_main p{
+    width: 50%;
+  }
+  
  
   
 }
@@ -1028,5 +1061,8 @@ footer p{
   }
   .filters{
     top: 7rem;
+  }
+  .total_main p{
+    width: 90%;
   }
 }

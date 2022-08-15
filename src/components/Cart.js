@@ -3,6 +3,13 @@ import CartItem from './CartItem'
 import {Link} from 'react-router-dom'
 
 const Cart = ({allCart , cartDisplay, handleCart, handleDeleteItem}) => {
+    const allPrice = allCart.map(item => {
+        return item.price
+    })
+    let totalPrice = 0
+    for (let i = 0; i < allPrice.length; i++) {
+        totalPrice += allPrice[i]
+    }
     
   return (
     <main className= "myCart" >
@@ -17,9 +24,24 @@ const Cart = ({allCart , cartDisplay, handleCart, handleDeleteItem}) => {
                         </Link>
                     </div>
                     :
-                    allCart.map(item => {
-                            return <CartItem key={item.id} item={item} handleDeleteItem = {handleDeleteItem} />
-                        })
+                    <>
+                        {allCart.map(item => {
+                                return <CartItem key={item.id} item={item} handleDeleteItem = {handleDeleteItem} />
+                            })}
+
+                            <div className='total_main'>
+                                <div className='subtotal'>
+                                    <div>
+                                    <h4>Total Price</h4>
+                                    <h4 className = "item_total_price">${totalPrice}</h4>
+                                    </div>
+                                    <p>
+                                        proceed to CheckOut
+                                    </p>
+
+                                </div>
+                            </div>
+                    </>
                 
                 }
             </div>
